@@ -1,5 +1,7 @@
 FROM balenalib/raspberrypi3-debian-node:12.11-buster
 
+bidul etruc
+
 RUN buildDeps="build-essential python-dev python3-dev python-setuptools python3-setuptools" \
     && echo 'APT::Install-Recommends "false";' >/etc/apt/apt.conf.d/00recommends \
     && echo 'APT::Install-Suggests "false";' >>/etc/apt/apt.conf.d/00recommends \
