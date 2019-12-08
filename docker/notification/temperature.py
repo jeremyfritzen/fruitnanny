@@ -3,7 +3,9 @@ import sys
 import Adafruit_DHT
 from pushbullet import Pushbullet
 
-pb =Pushbullet (o.9bUaasge1wTDY2MMnonIjnAY9PunOZYO)
+Pushbullet_API_key = ""
+
+pb = Pushbullet(Pushbullet_API_key)
 
 pin = 24
 humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT22, pin)
