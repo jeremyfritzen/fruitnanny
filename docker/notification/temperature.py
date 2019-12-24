@@ -7,13 +7,15 @@ from pushbullet import Pushbullet
 dhtDevice = adafruit_dht.DHT22(board.D24)
 pb = Pushbullet("")
 
+temp_min = 18
+temp_max = 21
 
 while True:
 	try:
 		# Print the values to the serial port
 		temperature_c = dhtDevice.temperature
 		message = ("La température est de {}".format(temperature_c))
-		if temperature_c > 21 or temperature_c < 18 :
+		if temperature_c > temp_max or temperature_c < temp_min :
 			push = pb.push_note("Rpi-Nanny", message)
 			print(message)
 	except RuntimeError as error:
