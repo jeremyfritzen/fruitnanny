@@ -9,14 +9,16 @@ pb = Pushbullet("")
 
 temp_min = 18
 temp_max = 21
+monitor_url = "http://rpi-nanny.home/"
 
 while True:
 	try:
 		# Print the values to the serial port
 		temperature_c = dhtDevice.temperature
-		message = ("La température est de {}".format(temperature_c))
+		message = ("Rpi-Nanny : {}°C !".format(temperature_c))
 		if temperature_c > temp_max or temperature_c < temp_min :
-			push = pb.push_note("Rpi-Nanny", message)
+			#push = pb.push_note("Rpi-Nanny", message)
+			push = pb.push_link(message, monitor_url)
 			print(message)
 	except RuntimeError as error:
 		# Errors happen fairly often, DHT's are hard to read, just keep going
