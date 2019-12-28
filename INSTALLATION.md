@@ -60,6 +60,16 @@ openssl passwd -apr1 >>  ./configuration/nginx/.htpasswd
 
 `openssl` will prompt for password
 
+### Configure notification function
+Create an account on Pushbullet.com
+Modifiy the temperature script (available here: docker/notification/temperature.py) with your Pushbullet API key:
+  - insert the API between quotes on the following line: pb = Pushbullet("")
+and whith your parameters: 
+  - temp_min
+  - temp_max
+  - monitor_url
+
+
 ### Run the system
 ```console
 cd /opt/fruitnanny
