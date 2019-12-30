@@ -5,6 +5,8 @@ RUN apt-get update \
     && pip3 install adafruit-circuitpython-lis3dh \
     && pip3 install adafruit-circuitpython-dht \
     && pip3 install pushbullet.py \
+    && pip3 install configparser \
+    && pip3 install adafruit-blinka \
     && apt-get --purge remove -y $buildDeps && apt-get --purge -y autoremove \
     && apt-get clean \
     && rm -rf /tmp/* \

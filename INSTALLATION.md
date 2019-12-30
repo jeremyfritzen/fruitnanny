@@ -63,13 +63,7 @@ openssl passwd -apr1 >>  ./configuration/nginx/.htpasswd
 ### Configure notification function
 First, create an account on Pushbullet.com.
 
-Then, set up your own configuration by editing the temperature script (available here in the fruitnanny folder: docker/notification/temperature.py): 
-* insert the API between quotes on the following line: `pb = Pushbullet("")`
-* edit the following parameters to suit to your own needs:
-  * temp_min
-  * temp_max
-  * monitor_url
-
+Then, set up your own configuration by editing the notification configuration file (available here in the fruitnanny folder: bin/configuration).
 
 ### Run the system
 ```console

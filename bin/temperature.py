@@ -4,15 +4,26 @@ import time
 import adafruit_dht
 import board
 from pushbullet import Pushbullet
+import configparser
 
+# parsing configuration file
+config = configparser.RawConfigParser()
+config.read('/opt/fruitnanny/bin/configuration')
+
+# set up temperature sensor
 dhtDevice = adafruit_dht.DHT22(board.D24)
-pb = Pushbullet("")
 
-temp_min = 18
-temp_max = 20
+#set up identification and other variables
+pb = Pushbullet(config.get('NOTIFICATION','Pushbullet_API_Key'))
+monitor_url = config.get('NOTIFICATION','url')
 frequence_notification = 1200
-monitor_url = "http://rpi-nanny.home/"
+temp_min = config.get('TEMPERATURE','temp_min')
+temp_max = config.get('TEMPERATURE','temp_max')
 
+print(temp_min)
+print(temp_max)
+
+"""
 while True:
 	try:
 		# Print the values to the serial port
@@ -29,5 +40,5 @@ while True:
 
 	time.sleep(5.0)
 
-# Print the values to the serial port
 #print(message)
+"""
