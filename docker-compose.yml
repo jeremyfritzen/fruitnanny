@@ -2,7 +2,7 @@ version: '3'
 services:
   janus:
     image: ivadim/fruitnanny-janus
-    restart: "no"
+    restart: always
     privileged: true
     network_mode: "host"
     volumes:
@@ -16,7 +16,7 @@ services:
 
   gstreamer-video:
     image: ivadim/fruitnanny-gstreamer
-    restart: "no"
+    restart: always
     privileged: true
     network_mode: "host"
     depends_on:
@@ -30,7 +30,7 @@ services:
 
   gstreamer-audio:
     image: ivadim/fruitnanny-gstreamer
-    restart: "no"
+    restart: always
     privileged: true
     network_mode: "host"
     depends_on:
@@ -41,7 +41,7 @@ services:
 
   fruitnanny:
     image: ivadim/fruitnanny-app
-    restart: "no"
+    restart: always
     privileged: true
     volumes:
       - ./fruitnanny_config.js:/opt/fruitnanny/fruitnanny_config.js
@@ -53,7 +53,7 @@ services:
 
   nginx:
     image: arm32v7/nginx
-    restart: "no"
+    restart: always
     network_mode: "host"
     depends_on:
       - janus
@@ -71,7 +71,7 @@ services:
     build:
       context: .
       dockerfile: docker/notification/Dockerfile
-    restart: "no"
+    restart: always
     network_mode: "host"
     privileged: true
     volumes:
