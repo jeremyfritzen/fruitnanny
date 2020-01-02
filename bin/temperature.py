@@ -17,13 +17,13 @@ dhtDevice = adafruit_dht.DHT22(board.D24)
 pb = Pushbullet(config.get('NOTIFICATION','Pushbullet_API_Key'))
 monitor_url = config.get('NOTIFICATION','url')
 frequence_notification = 1200
-temp_min = config.get('TEMPERATURE','temp_min')
-temp_max = config.get('TEMPERATURE','temp_max')
+temp_min = float(config.get('TEMPERATURE','temp_min'))
+temp_max = float(config.get('TEMPERATURE','temp_max'))
 
-print(temp_min)
-print(temp_max)
+#print(temp_min)
+#print(temp_max)
 
-"""
+
 while True:
 	try:
 		# Print the values to the serial port
@@ -41,4 +41,3 @@ while True:
 	time.sleep(5.0)
 
 #print(message)
-"""
